@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Management Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f6f8; padding:20px; }
+        .quiz-container { background:#fff; padding:20px; max-width:800px; margin:auto; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align:center; }
+        .question { margin-bottom:15px; }
+        .options label { display:block; margin-left:10px; }
+        button { display:block; margin:20px auto; padding:10px 25px; font-size:16px; cursor:pointer; }
+        #result { text-align:center; font-size:18px; font-weight:bold; }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+<h1>Database Management Quiz</h1>
+<form id="quizForm">
+
+<p>1. What does DBMS stand for?</p>
+<label><input type="radio" name="q1" value="a"> Data Backup Management System</label>
+<label><input type="radio" name="q1" value="b"> Database Management System</label>
+
+<p>2. Which key uniquely identifies a record?</p>
+<label><input type="radio" name="q2" value="a"> Foreign Key</label>
+<label><input type="radio" name="q2" value="b"> Primary Key</label>
+
+<p>3. Which SQL command retrieves data?</p>
+<label><input type="radio" name="q3" value="a"> SELECT</label>
+<label><input type="radio" name="q3" value="b"> DELETE</label>
+
+<button type="button" onclick="checkAnswers()">Submit</button>
+</form>
+<div id="result"></div>
+</div>
+
+<script>
+function checkAnswers(){
+ let score=0;
+ if(document.querySelector('input[name="q1"]:checked')?.value==="b") score++;
+ if(document.querySelector('input[name="q2"]:checked')?.value==="b") score++;
+ if(document.querySelector('input[name="q3"]:checked')?.value==="a") score++;
+ document.getElementById("result").innerHTML="Score: "+score+"/3";
+}
+</script>
+</body>
+</html>
